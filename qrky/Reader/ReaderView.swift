@@ -17,7 +17,9 @@ struct ReaderView: View {
                        maxWidth: 600,
                        minHeight: 300,
                        maxHeight: 600)
-        }.border(borderColor(), width: 10)
+                .border(borderColor(), width: 10)
+                .animation(.easeInOut(duration: 0.3))
+        }
     }
 
     func borderColor() -> Color {

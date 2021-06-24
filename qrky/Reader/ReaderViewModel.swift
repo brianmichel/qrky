@@ -107,7 +107,7 @@ final class ReaderWindowModel {
                 let content = UNMutableNotificationContent()
                 content.title = "Copied QR Code"
                 content.body = "Copied \"\(value)\" to clipboard from QR code."
-                let request = UNNotificationRequest(identifier: "me.foureyes.bsm.qrky-copied-\(UUID().uuidString)", content: content, trigger: nil)
+                let request = UNNotificationRequest(identifier: "me.foureyes.bsm.qrky-copied-\(value)", content: content, trigger: nil)
                 UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
             }
         }
