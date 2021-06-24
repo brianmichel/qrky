@@ -11,7 +11,13 @@ import SwiftUI
 struct qrkyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+        }
+
+        Settings {
+            VStack {
+                Text("Settings Go Here").padding()
+            }
         }
     }
 }

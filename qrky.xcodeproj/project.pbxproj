@@ -8,19 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CB6268410CB00785E13 /* qrkyApp.swift */; };
-		729A0CB9268410CB00785E13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CB8268410CB00785E13 /* ContentView.swift */; };
+		729A0CB9268410CB00785E13 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CB8268410CB00785E13 /* HomeView.swift */; };
 		729A0CBB268410CC00785E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729A0CBA268410CC00785E13 /* Assets.xcassets */; };
 		729A0CBE268410CC00785E13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729A0CBD268410CC00785E13 /* Preview Assets.xcassets */; };
+		729A0CC82684135B00785E13 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CC72684135B00785E13 /* HomeViewModel.swift */; };
+		729A0CCB2684141600785E13 /* WindowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CCA2684141600785E13 /* WindowReader.swift */; };
+		729A0CCE2684228A00785E13 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CCD2684228A00785E13 /* DebugView.swift */; };
+		729A0CD02684251A00785E13 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CCF2684251A00785E13 /* View+Extensions.swift */; };
+		729A0CD326842E6500785E13 /* ReaderWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD226842E6500785E13 /* ReaderWindow.swift */; };
+		729A0CD526842F8900785E13 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD426842F8900785E13 /* ReaderView.swift */; };
+		729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD6268438B200785E13 /* CIImage+Extensions.swift */; };
+		729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		729A0CB3268410CB00785E13 /* qrky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qrky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		729A0CB6268410CB00785E13 /* qrkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrkyApp.swift; sourceTree = "<group>"; };
-		729A0CB8268410CB00785E13 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		729A0CB8268410CB00785E13 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		729A0CBA268410CC00785E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		729A0CBD268410CC00785E13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		729A0CBF268410CC00785E13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		729A0CC0268410CC00785E13 /* qrky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = qrky.entitlements; sourceTree = "<group>"; };
+		729A0CC72684135B00785E13 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		729A0CCA2684141600785E13 /* WindowReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowReader.swift; sourceTree = "<group>"; };
+		729A0CCD2684228A00785E13 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		729A0CCF2684251A00785E13 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		729A0CD226842E6500785E13 /* ReaderWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderWindow.swift; sourceTree = "<group>"; };
+		729A0CD426842F8900785E13 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
+		729A0CD6268438B200785E13 /* CIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extensions.swift"; sourceTree = "<group>"; };
+		729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +69,11 @@
 		729A0CB5268410CB00785E13 /* qrky */ = {
 			isa = PBXGroup;
 			children = (
+				729A0CD126842E5300785E13 /* Reader */,
+				729A0CCC2684227900785E13 /* Debug */,
+				729A0CC9268413F700785E13 /* Utilities */,
+				729A0CC62684134600785E13 /* Home */,
 				729A0CB6268410CB00785E13 /* qrkyApp.swift */,
-				729A0CB8268410CB00785E13 /* ContentView.swift */,
 				729A0CBA268410CC00785E13 /* Assets.xcassets */,
 				729A0CBF268410CC00785E13 /* Info.plist */,
 				729A0CC0268410CC00785E13 /* qrky.entitlements */,
@@ -69,6 +88,43 @@
 				729A0CBD268410CC00785E13 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		729A0CC62684134600785E13 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				729A0CB8268410CB00785E13 /* HomeView.swift */,
+				729A0CC72684135B00785E13 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		729A0CC9268413F700785E13 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				729A0CCA2684141600785E13 /* WindowReader.swift */,
+				729A0CCF2684251A00785E13 /* View+Extensions.swift */,
+				729A0CD6268438B200785E13 /* CIImage+Extensions.swift */,
+				729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		729A0CCC2684227900785E13 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				729A0CCD2684228A00785E13 /* DebugView.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		729A0CD126842E5300785E13 /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				729A0CD226842E6500785E13 /* ReaderWindow.swift */,
+				729A0CD426842F8900785E13 /* ReaderView.swift */,
+			);
+			path = Reader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +196,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				729A0CB9268410CB00785E13 /* ContentView.swift in Sources */,
+				729A0CCB2684141600785E13 /* WindowReader.swift in Sources */,
+				729A0CD526842F8900785E13 /* ReaderView.swift in Sources */,
+				729A0CD326842E6500785E13 /* ReaderWindow.swift in Sources */,
+				729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */,
+				729A0CCE2684228A00785E13 /* DebugView.swift in Sources */,
+				729A0CB9268410CB00785E13 /* HomeView.swift in Sources */,
+				729A0CC82684135B00785E13 /* HomeViewModel.swift in Sources */,
+				729A0CD02684251A00785E13 /* View+Extensions.swift in Sources */,
+				729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */,
 				729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
