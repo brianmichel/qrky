@@ -19,6 +19,7 @@
 		729A0CD526842F8900785E13 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD426842F8900785E13 /* ReaderView.swift */; };
 		729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD6268438B200785E13 /* CIImage+Extensions.swift */; };
 		729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */; };
+		729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		729A0CD426842F8900785E13 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
 		729A0CD6268438B200785E13 /* CIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extensions.swift"; sourceTree = "<group>"; };
 		729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
+		729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				729A0CD226842E6500785E13 /* ReaderWindow.swift */,
 				729A0CD426842F8900785E13 /* ReaderView.swift */,
+				729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */,
 			);
 			path = Reader;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				729A0CD02684251A00785E13 /* View+Extensions.swift in Sources */,
 				729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */,
 				729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */,
+				729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct ReaderView: View {
+    var model: ReaderViewModel
+    
     var body: some View {
         VStack {
-            Text("")
-                .frame(minWidth: 300, minHeight: 300)
-        }.border(Color.red, width: 3)
+            Spacer()
+                .frame(minWidth: 300,
+                       maxWidth: 600,
+                       minHeight: 300,
+                       maxHeight: 600)
+        }.border(borderColor(), width: 10)
+    }
 
+    func borderColor() -> Color {
+        model.codes.count > 1 ? .green : .orange
     }
 }
 
 struct ReaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderView()
+        ReaderView(model: ReaderViewModel())
     }
 }

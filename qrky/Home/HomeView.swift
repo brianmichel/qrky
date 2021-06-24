@@ -10,17 +10,15 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.openURL) var openURL
 
+    private let readerModel = ReaderWindowModel()
+
     let model = HomeViewModel()
-    let reader = WindowReader()
 
     var body: some View {
         VStack {
             HStack {
                 Button("Open Reader") {
-                    let reader = ReaderWindow.windowController()
-                    reader.window?.title = "Reader"
-                    reader.window?.setContentSize(NSSize(width: 400, height: 500))
-                    reader.showWindow(self)
+                    readerModel.show()
                 }
 
                 Button("Open Debugger") {
