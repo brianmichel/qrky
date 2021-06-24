@@ -13,6 +13,7 @@ import UserNotifications
 final class ReaderViewModel: ObservableObject {
     @Published var codes: [String] = []
     @Published var foundCode: Bool = false
+    
 
     func update(codes: [String]?) {
         guard let qrCodes = codes else {

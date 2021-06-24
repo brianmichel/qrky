@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReaderView: View {
-    var model: ReaderViewModel
+    @ObservedObject var model: ReaderViewModel
     
     var body: some View {
         VStack {
@@ -21,12 +21,14 @@ struct ReaderView: View {
     }
 
     func borderColor() -> Color {
-        model.codes.count > 1 ? .green : .orange
+        model.codes.count > 0 ? .green : .red
     }
 }
 
 struct ReaderView_Previews: PreviewProvider {
+    static let model = ReaderViewModel()
+
     static var previews: some View {
-        ReaderView(model: ReaderViewModel())
+        ReaderView(model: model)
     }
 }
