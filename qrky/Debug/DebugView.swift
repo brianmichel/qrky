@@ -52,7 +52,7 @@ struct DebugView: View {
 
         DispatchQueue.main.async {
             let codes = croppedImage?.ciImage()?.qrCodes()
-            print("Code: \(codes)")
+            print("Code: \(String(describing: codes))")
         }
     }
 }

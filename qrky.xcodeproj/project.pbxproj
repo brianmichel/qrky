@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		729A0CB3268410CB00785E13 /* qrky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qrky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		729A0CB3268410CB00785E13 /* QRky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		729A0CB6268410CB00785E13 /* qrkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrkyApp.swift; sourceTree = "<group>"; };
 		729A0CB8268410CB00785E13 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		729A0CBA268410CC00785E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		729A0CB4268410CB00785E13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				729A0CB3268410CB00785E13 /* qrky.app */,
+				729A0CB3268410CB00785E13 /* QRky.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,9 +133,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		729A0CB2268410CB00785E13 /* qrky */ = {
+		729A0CB2268410CB00785E13 /* QRky */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 729A0CC3268410CC00785E13 /* Build configuration list for PBXNativeTarget "qrky" */;
+			buildConfigurationList = 729A0CC3268410CC00785E13 /* Build configuration list for PBXNativeTarget "QRky" */;
 			buildPhases = (
 				729A0CAF268410CB00785E13 /* Sources */,
 				729A0CB0268410CB00785E13 /* Frameworks */,
@@ -145,9 +145,9 @@
 			);
 			dependencies = (
 			);
-			name = qrky;
+			name = QRky;
 			productName = qrky;
-			productReference = 729A0CB3268410CB00785E13 /* qrky.app */;
+			productReference = 729A0CB3268410CB00785E13 /* QRky.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				729A0CB2268410CB00785E13 /* qrky */,
+				729A0CB2268410CB00785E13 /* QRky */,
 			);
 		};
 /* End PBXProject section */
@@ -391,7 +391,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		729A0CC3268410CC00785E13 /* Build configuration list for PBXNativeTarget "qrky" */ = {
+		729A0CC3268410CC00785E13 /* Build configuration list for PBXNativeTarget "QRky" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				729A0CC4268410CC00785E13 /* Debug */,

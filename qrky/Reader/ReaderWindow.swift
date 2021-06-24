@@ -27,6 +27,7 @@ final class ReaderWindow: NSWindow {
 
         level = .floating
         isMovable = true
+        isMovableByWindowBackground = true
         backgroundColor = .clear
     }
 }
