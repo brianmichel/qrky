@@ -18,7 +18,7 @@ struct ReaderView: View {
                        minHeight: 300,
                        maxHeight: 600)
                 .border(borderColor(), width: 10)
-                .animation(.easeInOut(duration: 0.3))
+                .animation(.easeInOut(duration: 0.1))
         }
     }
 

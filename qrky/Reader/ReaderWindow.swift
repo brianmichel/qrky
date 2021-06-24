@@ -22,11 +22,12 @@ final class ReaderWindow: NSWindow {
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect,
                    styleMask: style,
-                   backing: .buffered,
-                   defer: false)
+                   backing: backingStoreType,
+                   defer: flag)
 
         level = .floating
         isMovable = true
+        isMovableByWindowBackground = true
         backgroundColor = .clear
     }
 }

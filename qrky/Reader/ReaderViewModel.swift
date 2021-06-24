@@ -8,13 +8,13 @@
 import Foundation
 import AppKit
 import UserNotifications
+import Combine
 
 
 final class ReaderViewModel: ObservableObject {
     @Published var codes: [String] = []
     @Published var foundCode: Bool = false
     
-
     func update(codes: [String]?) {
         guard let qrCodes = codes else {
             return
@@ -31,6 +31,8 @@ final class ReaderWindowModel {
     private let controller: NSWindowController
     private let reader = WindowReader()
 
+    private var storage = Set<AnyCancellable>()
+
     init() {
         let controller = ReaderWindowController(rootView: ReaderView(model: readerViewModel))
         controller.window?.title = "QR Reader"
@@ -38,15 +40,31 @@ final class ReaderWindowModel {
 
         self.controller = controller
 
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(windowDidUpdate(notification:)),
-                                               name: NSWindow.didMoveNotification,
-                                               object: controller.window)
+//        [NSWindow.didMoveNotification,
+//         NSWindow.didBecomeKeyNotification,
+//         NSWindow.didResizeNotification,
+//         NSWindow.didResignKeyNotification,
+//        ].forEach { name in
+//            NotificationCenter.default.addObserver(self,
+//                                                   selector: #selector(windowDidUpdate(notification:)),
+//                                                   name: name,
+//                                                   object: controller.window)
+//        }
 
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(windowDidUpdate(notification:)),
-                                               name: NSWindow.didResizeNotification,
-                                               object: controller.window)
+        Publishers.MergeMany(
+            NotificationCenter.default.publisher(for: NSWindow.didMoveNotification, object: controller.window),
+            NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification, object: controller.window),
+            NotificationCenter.default.publisher(for: NSWindow.didResizeNotification, object: controller.window),
+            NotificationCenter.default.publisher(for: NSWindow.didResignKeyNotification, object: controller.window)
+        )
+        .debounce(for: 0.2, scheduler: RunLoop.main)
+        .sink { [weak self] publisher in
+            guard let window = publisher.object as? NSWindow else {
+                return
+            }
+
+            self?.windowDidUpdate(window: window)
+        }.store(in: &storage)
     }
 
     func show() {
@@ -56,6 +74,37 @@ final class ReaderWindowModel {
 
     func hide() {
         controller.close()
+    }
+
+    func windowDidUpdate(window: NSWindow) {
+        reader.refreshWindows()
+
+        DispatchQueue.main.async {
+            guard let internalWindow = self.reader.windows.filter({ potentialWindow in
+                potentialWindow.number == window.windowNumber
+            }).first else {
+                return
+            }
+
+            let windowRect = NSRect(x: CGFloat(internalWindow.bounds.x),
+                                    y: CGFloat(internalWindow.bounds.y),
+                                    width: CGFloat(internalWindow.bounds.width),
+                                    height: CGFloat(internalWindow.bounds.height))
+
+            let croppedImage = self.reader.screenshot(bounds: NSRectToCGRect(windowRect))
+
+            let codes = croppedImage?.ciImage()?.qrCodes()
+
+            print("Found codes: \(String(describing: codes))")
+
+            self.readerViewModel.update(codes: codes)
+
+            guard let first = codes?.first else {
+                return
+            }
+
+            self.copyToPasteboard(value: first)
+        }
     }
 
     @objc func windowDidUpdate(notification: Notification) {
