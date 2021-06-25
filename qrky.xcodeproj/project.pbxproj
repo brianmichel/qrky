@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72625B8626867BC50076009B /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8526867BC50076009B /* Window.swift */; };
+		72625B8826867BEA0076009B /* DecodedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8726867BEA0076009B /* DecodedItem.swift */; };
+		72625B8B26867C930076009B /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 72625B8A26867C930076009B /* OrderedCollections */; };
 		729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CB6268410CB00785E13 /* qrkyApp.swift */; };
 		729A0CB9268410CB00785E13 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CB8268410CB00785E13 /* HomeView.swift */; };
 		729A0CBB268410CC00785E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729A0CBA268410CC00785E13 /* Assets.xcassets */; };
@@ -23,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72625B8526867BC50076009B /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		72625B8726867BEA0076009B /* DecodedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItem.swift; sourceTree = "<group>"; };
 		729A0CB3268410CB00785E13 /* QRky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		729A0CB6268410CB00785E13 /* qrkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrkyApp.swift; sourceTree = "<group>"; };
 		729A0CB8268410CB00785E13 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -46,12 +51,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72625B8B26867C930076009B /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72625B8226867B3C0076009B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				72625B8526867BC50076009B /* Window.swift */,
+				72625B8726867BEA0076009B /* DecodedItem.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		729A0CAA268410CB00785E13 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +86,7 @@
 		729A0CB5268410CB00785E13 /* qrky */ = {
 			isa = PBXGroup;
 			children = (
+				72625B8226867B3C0076009B /* Data */,
 				729A0CD126842E5300785E13 /* Reader */,
 				729A0CCC2684227900785E13 /* Debug */,
 				729A0CC9268413F700785E13 /* Utilities */,
@@ -146,6 +162,9 @@
 			dependencies = (
 			);
 			name = QRky;
+			packageProductDependencies = (
+				72625B8A26867C930076009B /* OrderedCollections */,
+			);
 			productName = qrky;
 			productReference = 729A0CB3268410CB00785E13 /* QRky.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +192,9 @@
 				Base,
 			);
 			mainGroup = 729A0CAA268410CB00785E13;
+			packageReferences = (
+				72625B8926867C930076009B /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 729A0CB4268410CB00785E13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				729A0CCB2684141600785E13 /* WindowReader.swift in Sources */,
+				72625B8626867BC50076009B /* Window.swift in Sources */,
 				729A0CD526842F8900785E13 /* ReaderView.swift in Sources */,
 				729A0CD326842E6500785E13 /* ReaderWindow.swift in Sources */,
 				729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */,
@@ -208,6 +231,7 @@
 				729A0CC82684135B00785E13 /* HomeViewModel.swift in Sources */,
 				729A0CD02684251A00785E13 /* View+Extensions.swift in Sources */,
 				729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */,
+				72625B8826867BEA0076009B /* DecodedItem.swift in Sources */,
 				729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */,
 				729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */,
 			);
@@ -401,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		72625B8926867C930076009B /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		72625B8A26867C930076009B /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72625B8926867C930076009B /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 729A0CAB268410CB00785E13 /* Project object */;
 }
