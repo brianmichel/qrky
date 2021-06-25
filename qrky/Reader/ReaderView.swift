@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct ReaderView: View {
+    private enum Constants {
+        static let minDimension: CGFloat = 300
+        static let maxDimension: CGFloat = 600
+        static let borderWidth: CGFloat = 10
+    }
     @ObservedObject var model: ReaderViewModel
     
     var body: some View {
         VStack {
             Spacer()
-                .frame(minWidth: 300,
-                       maxWidth: 600,
-                       minHeight: 300,
-                       maxHeight: 600)
-                .border(borderColor(), width: 10)
+                .frame(minWidth: Constants.minDimension,
+                       maxWidth: Constants.maxDimension,
+                       minHeight: Constants.minDimension,
+                       maxHeight: Constants.maxDimension)
+                .border(borderColor(), width: Constants.borderWidth)
                 .animation(.easeInOut(duration: 0.3))
         }
     }

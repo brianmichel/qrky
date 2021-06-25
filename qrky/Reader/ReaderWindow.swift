@@ -10,9 +10,8 @@ import SwiftUI
 
 final class ReaderWindowController<RootView: View>: NSWindowController {
     convenience init(rootView: RootView) {
-        let hostingController = NSHostingController(rootView: rootView.frame(width: 300, height: 300))
+        let hostingController = NSHostingController(rootView: rootView)
         let window = ReaderWindow(contentViewController: hostingController)
-        window.setContentSize(NSSize(width: 300, height: 300))
 
         self.init(window: window)
     }

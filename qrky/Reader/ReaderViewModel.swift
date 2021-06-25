@@ -22,6 +22,9 @@ final class ReaderViewModel: ObservableObject {
 }
 
 final class ReaderWindowModel {
+    private enum Constants {
+        static let readerDefaultSize = NSSize(width: 300, height: 300)
+    }
     private let readerViewModel = ReaderViewModel()
 
     private let controller: NSWindowController
@@ -30,7 +33,7 @@ final class ReaderWindowModel {
     init() {
         let controller = ReaderWindowController(rootView: ReaderView(model: readerViewModel))
         controller.window?.title = "QR Reader"
-        controller.window?.setContentSize(NSSize(width: 300, height: 300))
+        controller.window?.setContentSize(Constants.readerDefaultSize)
 
         self.controller = controller
 
