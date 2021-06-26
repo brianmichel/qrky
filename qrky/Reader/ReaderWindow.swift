@@ -28,5 +28,7 @@ final class ReaderWindow: NSWindow {
         isMovable = true
         isMovableByWindowBackground = true
         backgroundColor = .clear
+
+        disableFullScreen()
     }
 }
