@@ -12,6 +12,13 @@ struct SettingsView: View {
         case general, about
     }
 
+    private enum Constants {
+        static let minWidth: CGFloat = 300
+        static let maxWidth: CGFloat = 400
+        static let minHeight: CGFloat = 300
+        static let maxHeight: CGFloat = 400
+    }
+
     var body: some View {
         TabView {
             GeneralSettingsView()
@@ -20,7 +27,12 @@ struct SettingsView: View {
             AboutSettingsView()
             .tabItem { Label("About", systemImage: "text.book.closed") }
             .tag(Tabs.about)
-        }.frame(minWidth: 200, idealWidth: 200, maxWidth: 400, minHeight: 200, idealHeight: 200, maxHeight: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+        .frame(minWidth: Constants.minWidth,
+               maxWidth: Constants.maxWidth,
+               minHeight: Constants.minHeight,
+               maxHeight: Constants.maxHeight,
+               alignment: .center)
     }
 }
 
