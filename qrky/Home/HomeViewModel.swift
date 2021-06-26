@@ -19,7 +19,7 @@ final class HomeViewModel: ObservableObject {
 
     init() {
         readerModel.foundCodeSubject.sink { [weak self] code in
-            self?.decodedItems.append(DecodedItem(value: code))
+            self?.decodedItems.insert(DecodedItem(value: code), at: 0)
         }.store(in: &storage)
     }
 

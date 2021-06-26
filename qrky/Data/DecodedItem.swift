@@ -14,4 +14,9 @@ struct DecodedItem: Hashable, Identifiable {
 
     let date = Date()
     let value: String
+
+    static func ==(lhs: DecodedItem, rhs: DecodedItem) -> Bool {
+        // We don't really care about the date for comparison, just the value.
+        return lhs.value == rhs.value
+    }
 }
