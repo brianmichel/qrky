@@ -1,0 +1,100 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'fileutils'
+
+COMMIT_MESSAGE = `git log -1 --no-merges --pretty="%h - %s"`.freeze
+GIT_REVISION = `git rev-parse --short HEAD`.chomp!.freeze
+BUILD_NUMBER = Time.now.utc.strftime('%Y.%m.%d%H%M%S').freeze
+VERSION_NUMBER = get_version_number(target: 'QRky')
+
+default_platform(:mac)
+
+platform :mac do
+  desc 'Create Beta Release'
+  lane :beta do |options|
+    # add actions here: https://docs.fastlane.tools/actions
+    ensure_git_status_clean
+
+    increment_build_number(build_number: BUILD_NUMBER, xcodeproj: 'qrky.xcodeproj')
+
+    output_directory = "fastlane/output/#{BUILD_NUMBER}"
+
+    build_mac_app(
+      scheme: 'QRky',
+      output_directory: output_directory,
+      export_options: {
+        method: 'developer-id'
+      }
+    )
+
+    description = '_No Description Specified..._'
+
+    if options[:description]
+      description = options[:description]
+    end
+
+    release_description = <<-eos
+    A new version of QRky has been published...
+    * QRky Version: #{get_version_number(xcodeproj: 'qrky.xcodeproj')}
+    * QRky Build: #{BUILD_NUMBER}
+
+    ## Description
+    #{description}
+   eos
+
+   puts release_description
+
+   dmg_path = create_dmg("../#{output_directory}", "QRky-Beta-#{BUILD_NUMBER}")
+
+   puts dmg_path
+
+   # Notarize the DMG package as it should also recursively notarize the .app file.
+   notarize(
+     package: dmg_path,
+     bundle_id: "me.foureyes.qrky"
+    )
+
+    git_commit(path: ['*'], message: "Creating beta release for version #{VERSION_NUMBER}, BUILD: #{BUILD_NUMBER}")
+
+    add_git_tag
+    push_to_git_remote
+
+    set_github_release(
+      repository_name: 'brianmichel/qrky',
+      api_token: ENV['GITHUB_TOKEN'],
+      description: release_description,
+      name: "#{BUILD_NUMBER}",
+      tag_name: "builds/macbeta/#{BUILD_NUMBER}",
+      upload_assets: [dmg_path]
+    )
+  end
+
+  def print_build_information 
+    UI.header 'QRKy macOS Build'
+    UI.important "Build Number: #{BUILD_NUMBER}"
+    UI.important "Git Revision: #{GIT_REVISION}"
+    UI.important "Last Commit Message: #{COMMIT_MESSAGE}"
+  end
+
+  def create_dmg(folder, dmg_name)
+    expanded_path = File.expand_path(folder)
+
+    UI.important "Trying to make dmg for folder #{expanded_path}"
+    `hdiutil create -fs HFS+ -srcfolder "#{expanded_path}" -volname #{dmg_name} #{folder}/#{dmg_name}.dmg`
+    raise "Unable to create DMG" unless $? == 0
+    return "#{expanded_path}/#{dmg_name}.dmg"
+  end
+end

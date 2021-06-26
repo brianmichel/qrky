@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'fastlane', '~> 2.183.2'
+gem 'fastlane', '~> 2.186.0'
