@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @AppStorage(PreferenceKeys.autoOpenScanner) private var autoOpenScanner = false
+
     private enum Constants {
         static let minWidth: CGFloat = 400
         static let maxWidth: CGFloat = 600
@@ -47,7 +49,11 @@ struct HomeView: View {
             HostingWindowFinder { window in
                 window?.disableFullScreen()
             }
-        )
+        ).onAppear(perform: {
+            if autoOpenScanner {
+                model.showReader()
+            }
+        })
     }
 }
 

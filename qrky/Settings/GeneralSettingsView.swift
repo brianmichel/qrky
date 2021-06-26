@@ -36,9 +36,9 @@ enum ScannerSuccessColor: Int {
 }
 
 struct GeneralSettingsView: View {
-    @AppStorage("autoOpenScanner") private var autoLaunchScanner = false
-    @AppStorage("qrCodeCheckDelay") private var qrCodeCheckDelay = QRCodeCheckDelay.instant
-    @AppStorage("qrScanSuccessColor") private var anotherDropDown = ScannerSuccessColor.green
+    @AppStorage(PreferenceKeys.autoOpenScanner) private var autoLaunchScanner = false
+    @AppStorage(PreferenceKeys.qrCodeCheckDelay) private var qrCodeCheckDelay = QRCodeCheckDelay.instant
+    @AppStorage(PreferenceKeys.qrScanSuccessColor) private var anotherDropDown = ScannerSuccessColor.green
 
     var body: some View {
         VStack {

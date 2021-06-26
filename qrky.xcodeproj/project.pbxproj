@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72420D662687D45A007260FD /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72420D652687D45A007260FD /* PreferenceKeys.swift */; };
 		72625B8626867BC50076009B /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8526867BC50076009B /* Window.swift */; };
 		72625B8826867BEA0076009B /* DecodedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8726867BEA0076009B /* DecodedItem.swift */; };
 		72625B8B26867C930076009B /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 72625B8A26867C930076009B /* OrderedCollections */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72420D652687D45A007260FD /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		72625B8526867BC50076009B /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		72625B8726867BEA0076009B /* DecodedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItem.swift; sourceTree = "<group>"; };
 		72625B8C26875A920076009B /* DecodedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItemCell.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				72625B8526867BC50076009B /* Window.swift */,
 				72625B8726867BEA0076009B /* DecodedItem.swift */,
+				72420D652687D45A007260FD /* PreferenceKeys.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				729A0CD02684251A00785E13 /* View+Extensions.swift in Sources */,
 				729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */,
 				72625B8826867BEA0076009B /* DecodedItem.swift in Sources */,
+				72420D662687D45A007260FD /* PreferenceKeys.swift in Sources */,
 				729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */,
 				72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */,
 				729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */,
