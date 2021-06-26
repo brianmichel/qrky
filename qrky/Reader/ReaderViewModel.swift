@@ -25,6 +25,7 @@ final class ReaderViewModel: ObservableObject {
 final class ReaderWindowModel {
     private enum Constants {
         static let readerDefaultSize = NSSize(width: 300, height: 300)
+        static let notificationDebounceTime: RunLoop.SchedulerTimeType.Stride = 0.3
     }
 
     private let readerViewModel = ReaderViewModel()
@@ -34,6 +35,8 @@ final class ReaderWindowModel {
 
     let foundCodeSubject = PassthroughSubject<String, Never>()
 
+    private var storage = Set<AnyCancellable>()
+
     init() {
         let controller = ReaderWindowController(rootView: ReaderView(model: readerViewModel))
         controller.window?.title = "QR Reader"
@@ -41,15 +44,23 @@ final class ReaderWindowModel {
 
         self.controller = controller
 
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(windowDidUpdate(notification:)),
-                                               name: NSWindow.didMoveNotification,
-                                               object: controller.window)
+        Publishers.MergeMany(
+            [NSWindow.didMoveNotification,
+             NSWindow.didResizeNotification,
+             NSWindow.didBecomeKeyNotification
+            ].map({ name in
+                return NotificationCenter.default.publisher(for: name, object: controller.window)
+            })
+        )
+        .debounce(for: Constants.notificationDebounceTime, scheduler: RunLoop.main)
+        .sink { [weak self] notification in
+            guard let window = notification.object as? NSWindow else {
+                return
+            }
 
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(windowDidUpdate(notification:)),
-                                               name: NSWindow.didResizeNotification,
-                                               object: controller.window)
+            self?.checkForCode(in: window)
+        }
+        .store(in: &storage)
     }
 
     func show() {
@@ -61,13 +72,8 @@ final class ReaderWindowModel {
         controller.close()
     }
 
-    @objc func windowDidUpdate(notification: Notification) {
+    private func checkForCode(in window: NSWindow) {
         reader.refreshWindows()
-
-        guard let window = controller.window,
-              notification.object as? NSWindow == window else {
-            return
-        }
 
         DispatchQueue.main.async {
             guard let internalWindow = self.reader.windows.filter({ potentialWindow in
