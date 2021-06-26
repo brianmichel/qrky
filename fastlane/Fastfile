@@ -47,19 +47,15 @@ platform :mac do
     end
 
     release_description = <<-eos
-    A new version of QRky has been published...
-    * QRky Version: #{get_version_number(xcodeproj: 'qrky.xcodeproj')}
-    * QRky Build: #{BUILD_NUMBER}
+A new version of QRky has been published...
+* QRky Version: #{get_version_number(xcodeproj: 'qrky.xcodeproj')}
+* QRky Build: #{BUILD_NUMBER}
 
-    ## Description
-    #{description}
+## Description
+#{description}
    eos
 
-   puts release_description
-
    dmg_path = create_dmg("../#{output_directory}", "QRky-Beta-#{BUILD_NUMBER}")
-
-   puts dmg_path
 
    # Notarize the DMG package as it should also recursively notarize the .app file.
    notarize(
