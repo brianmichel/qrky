@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72420D662687D45A007260FD /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72420D652687D45A007260FD /* PreferenceKeys.swift */; };
 		72625B8626867BC50076009B /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8526867BC50076009B /* Window.swift */; };
 		72625B8826867BEA0076009B /* DecodedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8726867BEA0076009B /* DecodedItem.swift */; };
 		72625B8B26867C930076009B /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 72625B8A26867C930076009B /* OrderedCollections */; };
@@ -28,9 +29,14 @@
 		72DBF97826879E1C00450699 /* QrkyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */; };
 		72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF9792687A14C00450699 /* HostingWindowFinder.swift */; };
 		72DBF97C2687A2B800450699 /* NSWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */; };
+		72DBF97F2687B32A00450699 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97E2687B32A00450699 /* SettingsView.swift */; };
+		72DBF9812687BA6600450699 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF9802687BA6600450699 /* GeneralSettingsView.swift */; };
+		72DBF9842687BEDA00450699 /* QRkyVersionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF9832687BEDA00450699 /* QRkyVersionInformation.swift */; };
+		72DBF9862687BFC500450699 /* AboutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF9852687BFC500450699 /* AboutSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72420D652687D45A007260FD /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		72625B8526867BC50076009B /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		72625B8726867BEA0076009B /* DecodedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItem.swift; sourceTree = "<group>"; };
 		72625B8C26875A920076009B /* DecodedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItemCell.swift; sourceTree = "<group>"; };
@@ -54,6 +60,10 @@
 		72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrkyAppDelegate.swift; sourceTree = "<group>"; };
 		72DBF9792687A14C00450699 /* HostingWindowFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingWindowFinder.swift; sourceTree = "<group>"; };
 		72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Extensions.swift"; sourceTree = "<group>"; };
+		72DBF97E2687B32A00450699 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		72DBF9802687BA6600450699 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		72DBF9832687BEDA00450699 /* QRkyVersionInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRkyVersionInformation.swift; sourceTree = "<group>"; };
+		72DBF9852687BFC500450699 /* AboutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +83,7 @@
 			children = (
 				72625B8526867BC50076009B /* Window.swift */,
 				72625B8726867BEA0076009B /* DecodedItem.swift */,
+				72420D652687D45A007260FD /* PreferenceKeys.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -96,6 +107,8 @@
 		729A0CB5268410CB00785E13 /* qrky */ = {
 			isa = PBXGroup;
 			children = (
+				72DBF9822687BEDA00450699 /* Infrastructure */,
+				72DBF97D2687B32100450699 /* Settings */,
 				72DBF97626879E0300450699 /* Start Up */,
 				72625B8226867B3C0076009B /* Data */,
 				729A0CD126842E5300785E13 /* Reader */,
@@ -167,6 +180,24 @@
 				72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */,
 			);
 			path = "Start Up";
+			sourceTree = "<group>";
+		};
+		72DBF97D2687B32100450699 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				72DBF97E2687B32A00450699 /* SettingsView.swift */,
+				72DBF9802687BA6600450699 /* GeneralSettingsView.swift */,
+				72DBF9852687BFC500450699 /* AboutSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		72DBF9822687BEDA00450699 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				72DBF9832687BEDA00450699 /* QRkyVersionInformation.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,22 +277,27 @@
 			files = (
 				729A0CCB2684141600785E13 /* WindowReader.swift in Sources */,
 				72625B8626867BC50076009B /* Window.swift in Sources */,
+				72DBF9842687BEDA00450699 /* QRkyVersionInformation.swift in Sources */,
 				72DBF97C2687A2B800450699 /* NSWindow+Extensions.swift in Sources */,
 				729A0CD526842F8900785E13 /* ReaderView.swift in Sources */,
 				72DBF97826879E1C00450699 /* QrkyAppDelegate.swift in Sources */,
 				729A0CD326842E6500785E13 /* ReaderWindow.swift in Sources */,
+				72DBF9812687BA6600450699 /* GeneralSettingsView.swift in Sources */,
 				729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */,
 				72625B8D26875A920076009B /* DecodedItemCell.swift in Sources */,
 				729A0CCE2684228A00785E13 /* DebugView.swift in Sources */,
 				729A0CB9268410CB00785E13 /* HomeView.swift in Sources */,
 				72625B8F268766850076009B /* EmptyHomeView.swift in Sources */,
+				72DBF9862687BFC500450699 /* AboutSettingsView.swift in Sources */,
 				729A0CC82684135B00785E13 /* HomeViewModel.swift in Sources */,
 				729A0CD02684251A00785E13 /* View+Extensions.swift in Sources */,
 				729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */,
 				72625B8826867BEA0076009B /* DecodedItem.swift in Sources */,
+				72420D662687D45A007260FD /* PreferenceKeys.swift in Sources */,
 				729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */,
 				72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */,
 				729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */,
+				72DBF97F2687B32A00450699 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -78,6 +78,27 @@ A new version of QRky has been published...
     )
   end
 
+  lane :update_version_file do
+    print_build_information
+
+    file = <<-EOF
+/// WARNING: Do not manually edit this file, it is manually generated.
+/// Please look at the Fastfile to update this file if needed.
+import Foundation
+/// Version information for the QRky applicatioin
+struct QRkyVersionInformation {
+  /// The version number of the application
+  static let versionNumber: String = "#{VERSION_NUMBER}"
+  /// The build number that would be set, a concatenation of the date and time.
+  static let buildNumber: String = "#{BUILD_NUMBER}"
+  /// The git revision that is being built.
+  static let gitRevision: String = "#{GIT_REVISION}"
+}
+    EOF
+    FileUtils.mkdir_p("../qrky/Infrastructure")
+    File.open("../qrky/Infrastructure/QRkyVersionInformation.swift", "w+") { |f| f.write(file)}
+  end
+
   def print_build_information 
     UI.header 'QRKy macOS Build'
     UI.important "Build Number: #{BUILD_NUMBER}"

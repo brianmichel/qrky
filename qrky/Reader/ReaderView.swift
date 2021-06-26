@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ReaderView: View {
+    @AppStorage(PreferenceKeys.qrScanSuccessColor) private var qrScanSuccessColor = ScannerSuccessColor.green
+
     private enum Constants {
         static let minDimension: CGFloat = 300
         static let maxDimension: CGFloat = 600
@@ -28,7 +30,7 @@ struct ReaderView: View {
     }
 
     func borderColor() -> Color {
-        model.codes.count > 0 ? .green : .red
+        model.codes.count > 0 ? qrScanSuccessColor.color : .red
     }
 }
 

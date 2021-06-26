@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane mac beta
 ```
 Create Beta Release
+### mac update_version_file
+```
+fastlane mac update_version_file
+```
+
 
 ----
 
