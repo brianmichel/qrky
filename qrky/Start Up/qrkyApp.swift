@@ -21,9 +21,7 @@ struct qrkyApp: App {
         }
 
         Settings {
-            VStack {
-                Text("Settings Go Here").padding()
-            }
+            SettingsView()
         }
     }
 }
