@@ -14,7 +14,7 @@ struct HomeView: View {
         static let minHeight: CGFloat = 300
         static let maxHeight: CGFloat = 700
     }
-    @ObservedObject var model = HomeViewModel()
+    @ObservedObject var model: HomeViewModel
 
     var body: some View {
         VStack {
@@ -41,12 +41,18 @@ struct HomeView: View {
                  maxWidth: Constants.maxWidth,
                  minHeight: Constants.minHeight,
                  maxHeight: Constants.maxHeight,
-                 alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                 alignment: .center)
+        .background(
+            // TODO: This is a hack to bridge into AppKit and disable the full screen button.
+            HostingWindowFinder { window in
+                window?.disableFullScreen()
+            }
+        )
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(model: HomeViewModel())
     }
 }

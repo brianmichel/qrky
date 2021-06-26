@@ -25,6 +25,9 @@
 		729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD6268438B200785E13 /* CIImage+Extensions.swift */; };
 		729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */; };
 		729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */; };
+		72DBF97826879E1C00450699 /* QrkyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */; };
+		72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF9792687A14C00450699 /* HostingWindowFinder.swift */; };
+		72DBF97C2687A2B800450699 /* NSWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		729A0CD6268438B200785E13 /* CIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extensions.swift"; sourceTree = "<group>"; };
 		729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
+		72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrkyAppDelegate.swift; sourceTree = "<group>"; };
+		72DBF9792687A14C00450699 /* HostingWindowFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingWindowFinder.swift; sourceTree = "<group>"; };
+		72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +96,12 @@
 		729A0CB5268410CB00785E13 /* qrky */ = {
 			isa = PBXGroup;
 			children = (
+				72DBF97626879E0300450699 /* Start Up */,
 				72625B8226867B3C0076009B /* Data */,
 				729A0CD126842E5300785E13 /* Reader */,
 				729A0CCC2684227900785E13 /* Debug */,
 				729A0CC9268413F700785E13 /* Utilities */,
 				729A0CC62684134600785E13 /* Home */,
-				729A0CB6268410CB00785E13 /* qrkyApp.swift */,
 				729A0CBA268410CC00785E13 /* Assets.xcassets */,
 				729A0CBF268410CC00785E13 /* Info.plist */,
 				729A0CC0268410CC00785E13 /* qrky.entitlements */,
@@ -130,6 +136,8 @@
 				729A0CCF2684251A00785E13 /* View+Extensions.swift */,
 				729A0CD6268438B200785E13 /* CIImage+Extensions.swift */,
 				729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */,
+				72DBF9792687A14C00450699 /* HostingWindowFinder.swift */,
+				72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -150,6 +158,15 @@
 				729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */,
 			);
 			path = Reader;
+			sourceTree = "<group>";
+		};
+		72DBF97626879E0300450699 /* Start Up */ = {
+			isa = PBXGroup;
+			children = (
+				729A0CB6268410CB00785E13 /* qrkyApp.swift */,
+				72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */,
+			);
+			path = "Start Up";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +246,9 @@
 			files = (
 				729A0CCB2684141600785E13 /* WindowReader.swift in Sources */,
 				72625B8626867BC50076009B /* Window.swift in Sources */,
+				72DBF97C2687A2B800450699 /* NSWindow+Extensions.swift in Sources */,
 				729A0CD526842F8900785E13 /* ReaderView.swift in Sources */,
+				72DBF97826879E1C00450699 /* QrkyAppDelegate.swift in Sources */,
 				729A0CD326842E6500785E13 /* ReaderWindow.swift in Sources */,
 				729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */,
 				72625B8D26875A920076009B /* DecodedItemCell.swift in Sources */,
@@ -241,6 +260,7 @@
 				729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */,
 				72625B8826867BEA0076009B /* DecodedItem.swift in Sources */,
 				729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */,
+				72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */,
 				729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
