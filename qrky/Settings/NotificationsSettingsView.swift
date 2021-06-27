@@ -31,9 +31,9 @@ struct NotificationsSettingsView: View {
         VStack {
             Form {
                 Picker("Notifications:", selection: $notificationsState) {
-                    ForEach(NotificationsState.allCases, id: \.self) { state in
-                        Text(state.description).tag(state)
-                    }
+                    Text("On").tag(NotificationsState.on)
+                    Text("On, with duplicates").tag(NotificationsState.onWithDuplicates)
+                    Text("Off").tag(NotificationsState.off  )
                 }.pickerStyle(InlinePickerStyle())
                 Text("Allowing duplicates will let multiple notifications from the same decoded QR code value. This is useful if you want to re-trigger getting a notificationi by jiggling the reader window.")
                     .font(.callout)
