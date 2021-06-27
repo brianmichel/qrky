@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     private enum Tabs: Hashable {
-        case general, about
+        case general, notifications, about
     }
 
     private enum Constants {
@@ -17,6 +17,7 @@ struct SettingsView: View {
         static let maxWidth: CGFloat = 400
         static let minHeight: CGFloat = 300
         static let maxHeight: CGFloat = 400
+
     }
 
     var body: some View {
@@ -24,6 +25,9 @@ struct SettingsView: View {
             GeneralSettingsView()
             .tabItem { Label("General", systemImage: "qrcode") }
             .tag(Tabs.general)
+            NotificationsSettingsView()
+            .tabItem { Label("Notifications", systemImage: "app.badge")}
+            .tag(Tabs.notifications)
             AboutSettingsView()
             .tabItem { Label("About", systemImage: "text.book.closed") }
             .tag(Tabs.about)
