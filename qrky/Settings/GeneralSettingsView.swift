@@ -65,7 +65,8 @@ struct GeneralSettingsView: View {
                 Text("Sometimes you might want to delay the recognition of a QR code until after the window has settled, this option lets you tune this preference.")
                     .font(.callout)
                     .foregroundColor(.secondary)
-            }.padding(.horizontal)
+                Spacer()
+            }.padding([.horizontal, .top])
         }
     }
 }

@@ -13,6 +13,7 @@
 		72625B8B26867C930076009B /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 72625B8A26867C930076009B /* OrderedCollections */; };
 		72625B8D26875A920076009B /* DecodedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8C26875A920076009B /* DecodedItemCell.swift */; };
 		72625B8F268766850076009B /* EmptyHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8E268766850076009B /* EmptyHomeView.swift */; };
+		7265D88D2687EE21003C4D9E /* NotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7265D88C2687EE21003C4D9E /* NotificationsSettingsView.swift */; };
 		729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CB6268410CB00785E13 /* qrkyApp.swift */; };
 		729A0CB9268410CB00785E13 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CB8268410CB00785E13 /* HomeView.swift */; };
 		729A0CBB268410CC00785E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729A0CBA268410CC00785E13 /* Assets.xcassets */; };
@@ -26,6 +27,8 @@
 		729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD6268438B200785E13 /* CIImage+Extensions.swift */; };
 		729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */; };
 		729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */; };
+		729DE0CF2689F31C00D72566 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DE0CE2689F31C00D72566 /* Notifier.swift */; };
+		72C5EFB82687FBE8008F4ED8 /* FormGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */; };
 		72DBF97826879E1C00450699 /* QrkyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */; };
 		72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF9792687A14C00450699 /* HostingWindowFinder.swift */; };
 		72DBF97C2687A2B800450699 /* NSWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */; };
@@ -41,6 +44,7 @@
 		72625B8726867BEA0076009B /* DecodedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItem.swift; sourceTree = "<group>"; };
 		72625B8C26875A920076009B /* DecodedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItemCell.swift; sourceTree = "<group>"; };
 		72625B8E268766850076009B /* EmptyHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHomeView.swift; sourceTree = "<group>"; };
+		7265D88C2687EE21003C4D9E /* NotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsView.swift; sourceTree = "<group>"; };
 		729A0CB3268410CB00785E13 /* QRky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		729A0CB6268410CB00785E13 /* qrkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrkyApp.swift; sourceTree = "<group>"; };
 		729A0CB8268410CB00785E13 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 		729A0CD6268438B200785E13 /* CIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extensions.swift"; sourceTree = "<group>"; };
 		729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
+		729DE0CE2689F31C00D72566 /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
+		72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormGroupView.swift; sourceTree = "<group>"; };
 		72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrkyAppDelegate.swift; sourceTree = "<group>"; };
 		72DBF9792687A14C00450699 /* HostingWindowFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingWindowFinder.swift; sourceTree = "<group>"; };
 		72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Extensions.swift"; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 				729A0CC72684135B00785E13 /* HomeViewModel.swift */,
 				72625B8C26875A920076009B /* DecodedItemCell.swift */,
 				72625B8E268766850076009B /* EmptyHomeView.swift */,
+				729DE0CE2689F31C00D72566 /* Notifier.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -151,6 +158,7 @@
 				729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */,
 				72DBF9792687A14C00450699 /* HostingWindowFinder.swift */,
 				72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */,
+				72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 				72DBF97E2687B32A00450699 /* SettingsView.swift */,
 				72DBF9802687BA6600450699 /* GeneralSettingsView.swift */,
 				72DBF9852687BFC500450699 /* AboutSettingsView.swift */,
+				7265D88C2687EE21003C4D9E /* NotificationsSettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -275,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7265D88D2687EE21003C4D9E /* NotificationsSettingsView.swift in Sources */,
 				729A0CCB2684141600785E13 /* WindowReader.swift in Sources */,
 				72625B8626867BC50076009B /* Window.swift in Sources */,
 				72DBF9842687BEDA00450699 /* QRkyVersionInformation.swift in Sources */,
@@ -286,10 +296,12 @@
 				729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */,
 				72625B8D26875A920076009B /* DecodedItemCell.swift in Sources */,
 				729A0CCE2684228A00785E13 /* DebugView.swift in Sources */,
+				72C5EFB82687FBE8008F4ED8 /* FormGroupView.swift in Sources */,
 				729A0CB9268410CB00785E13 /* HomeView.swift in Sources */,
 				72625B8F268766850076009B /* EmptyHomeView.swift in Sources */,
 				72DBF9862687BFC500450699 /* AboutSettingsView.swift in Sources */,
 				729A0CC82684135B00785E13 /* HomeViewModel.swift in Sources */,
+				729DE0CF2689F31C00D72566 /* Notifier.swift in Sources */,
 				729A0CD02684251A00785E13 /* View+Extensions.swift in Sources */,
 				729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */,
 				72625B8826867BEA0076009B /* DecodedItem.swift in Sources */,
