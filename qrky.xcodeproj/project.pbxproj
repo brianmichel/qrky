@@ -27,6 +27,7 @@
 		729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD6268438B200785E13 /* CIImage+Extensions.swift */; };
 		729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */; };
 		729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */; };
+		729DE0CF2689F31C00D72566 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DE0CE2689F31C00D72566 /* Notifier.swift */; };
 		72C5EFB82687FBE8008F4ED8 /* FormGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */; };
 		72DBF97826879E1C00450699 /* QrkyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */; };
 		72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF9792687A14C00450699 /* HostingWindowFinder.swift */; };
@@ -60,6 +61,7 @@
 		729A0CD6268438B200785E13 /* CIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extensions.swift"; sourceTree = "<group>"; };
 		729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
+		729DE0CE2689F31C00D72566 /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormGroupView.swift; sourceTree = "<group>"; };
 		72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrkyAppDelegate.swift; sourceTree = "<group>"; };
 		72DBF9792687A14C00450699 /* HostingWindowFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingWindowFinder.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				729A0CC72684135B00785E13 /* HomeViewModel.swift */,
 				72625B8C26875A920076009B /* DecodedItemCell.swift */,
 				72625B8E268766850076009B /* EmptyHomeView.swift */,
+				729DE0CE2689F31C00D72566 /* Notifier.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				72625B8F268766850076009B /* EmptyHomeView.swift in Sources */,
 				72DBF9862687BFC500450699 /* AboutSettingsView.swift in Sources */,
 				729A0CC82684135B00785E13 /* HomeViewModel.swift in Sources */,
+				729DE0CF2689F31C00D72566 /* Notifier.swift in Sources */,
 				729A0CD02684251A00785E13 /* View+Extensions.swift in Sources */,
 				729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */,
 				72625B8826867BEA0076009B /* DecodedItem.swift in Sources */,

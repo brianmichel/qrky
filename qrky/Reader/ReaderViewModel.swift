@@ -99,32 +99,7 @@ final class ReaderWindowModel {
                 return
             }
 
-            self.copyToPasteboard(value: first)
+            self.foundCodeSubject.send(first)
         }
-    }
-
-    func copyToPasteboard(value: String) {
-        let pasteBoard = NSPasteboard.general
-        pasteBoard.clearContents()
-
-        pasteBoard.setString(value, forType: .string)
-
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) { success, error in
-            if let error = error {
-                print("Got error: \(error)")
-            } else if success {
-                let content = UNMutableNotificationContent()
-                content.title = "Copied QR Code"
-                content.body = "Copied \"\(value)\" to clipboard from QR code."
-                let request = UNNotificationRequest(identifier: "me.foureyes.bsm.qrky-copied-\(value)", content: content, trigger: nil)
-                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            }
-        }
-
-        foundCodeSubject.send(value)
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
 }
