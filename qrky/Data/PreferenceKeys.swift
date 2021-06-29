@@ -13,4 +13,6 @@ enum PreferenceKeys {
     static let qrCodeCheckDelay = "qrCodeCheckDelay"
     static let qrScanSuccessColor = "qrScanSuccessColor"
     static let notificationState = "notificationState"
+    static let availableActions = "availableActions"
+    static let selectedAction = "selectedAction"
 }

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		72420D662687D45A007260FD /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72420D652687D45A007260FD /* PreferenceKeys.swift */; };
+		725836A9268AACB400C81010 /* ActionsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725836A8268AACB400C81010 /* ActionsSettingsView.swift */; };
+		725836AB268B49C000C81010 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725836AA268B49C000C81010 /* Array+Extensions.swift */; };
+		725836AD268B59FF00C81010 /* Actioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725836AC268B59FF00C81010 /* Actioner.swift */; };
+		725836AF268B637A00C81010 /* ActionsEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725836AE268B637A00C81010 /* ActionsEditorView.swift */; };
 		72625B8626867BC50076009B /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8526867BC50076009B /* Window.swift */; };
 		72625B8826867BEA0076009B /* DecodedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72625B8726867BEA0076009B /* DecodedItem.swift */; };
 		72625B8B26867C930076009B /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 72625B8A26867C930076009B /* OrderedCollections */; };
@@ -42,6 +46,10 @@
 
 /* Begin PBXFileReference section */
 		72420D652687D45A007260FD /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
+		725836A8268AACB400C81010 /* ActionsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsSettingsView.swift; sourceTree = "<group>"; };
+		725836AA268B49C000C81010 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		725836AC268B59FF00C81010 /* Actioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actioner.swift; sourceTree = "<group>"; };
+		725836AE268B637A00C81010 /* ActionsEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsEditorView.swift; sourceTree = "<group>"; };
 		72625B8526867BC50076009B /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		72625B8726867BEA0076009B /* DecodedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItem.swift; sourceTree = "<group>"; };
 		72625B8C26875A920076009B /* DecodedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedItemCell.swift; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 				72625B8C26875A920076009B /* DecodedItemCell.swift */,
 				72625B8E268766850076009B /* EmptyHomeView.swift */,
 				729DE0CE2689F31C00D72566 /* Notifier.swift */,
+				725836AC268B59FF00C81010 /* Actioner.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -165,6 +174,7 @@
 				72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */,
 				72B9F8AB268A91B2008D9A29 /* SheetView.swift */,
 				72B9F8AD268A98FE008D9A29 /* PasteboardCopier.swift */,
+				725836AA268B49C000C81010 /* Array+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -203,6 +213,8 @@
 				72DBF9802687BA6600450699 /* GeneralSettingsView.swift */,
 				72DBF9852687BFC500450699 /* AboutSettingsView.swift */,
 				7265D88C2687EE21003C4D9E /* NotificationsSettingsView.swift */,
+				725836A8268AACB400C81010 /* ActionsSettingsView.swift */,
+				725836AE268B637A00C81010 /* ActionsEditorView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -295,9 +307,12 @@
 				72625B8626867BC50076009B /* Window.swift in Sources */,
 				72DBF9842687BEDA00450699 /* QRkyVersionInformation.swift in Sources */,
 				72DBF97C2687A2B800450699 /* NSWindow+Extensions.swift in Sources */,
+				725836AF268B637A00C81010 /* ActionsEditorView.swift in Sources */,
 				729A0CD526842F8900785E13 /* ReaderView.swift in Sources */,
 				72DBF97826879E1C00450699 /* QrkyAppDelegate.swift in Sources */,
+				725836A9268AACB400C81010 /* ActionsSettingsView.swift in Sources */,
 				729A0CD326842E6500785E13 /* ReaderWindow.swift in Sources */,
+				725836AB268B49C000C81010 /* Array+Extensions.swift in Sources */,
 				72DBF9812687BA6600450699 /* GeneralSettingsView.swift in Sources */,
 				729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */,
 				72B9F8AC268A91B2008D9A29 /* SheetView.swift in Sources */,
@@ -317,6 +332,7 @@
 				729A0CB7268410CB00785E13 /* qrkyApp.swift in Sources */,
 				72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */,
 				729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */,
+				725836AD268B59FF00C81010 /* Actioner.swift in Sources */,
 				72DBF97F2687B32A00450699 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
