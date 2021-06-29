@@ -13,6 +13,8 @@ struct DecodedItemCell: View {
     let date: Date
     let value: String
 
+    let copyToClipboard: () -> Void
+
     // TODO: Probably too slow doing this on the fly, might be useful to come out of the VM.
     private let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -38,7 +40,7 @@ struct DecodedItemCell: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        
+                        copyToClipboard()
                     }, label: {
                         Label("Copy to clipboard", systemImage: "doc.on.doc.fill")
                     })
@@ -56,6 +58,8 @@ struct DecodedItemCell: View {
 
 struct DecodedItemCell_Previews: PreviewProvider {
     static var previews: some View {
-        DecodedItemCell(date: Date(), value: "https://cool.app/rad").padding()
+        DecodedItemCell(date: Date(), value: "https://cool.app/rad") {
+            // Callback when clipboard button is clicked
+        }
     }
 }

@@ -24,7 +24,9 @@ struct HomeView: View {
                 ScrollView {
                     LazyVStack(spacing: 5) {
                         ForEach(model.decodedItems, id: \.self) { item in
-                            DecodedItemCell(date: item.date, value: item.value)
+                            DecodedItemCell(date: item.date, value: item.value) {
+                                model.copyToClipboard(item: item)
+                            }
                         }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
                     }
                 }

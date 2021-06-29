@@ -67,9 +67,8 @@ final class HomeViewModel: ObservableObject {
         readerModel.hide()
     }
 
-    private func copyToClipboard(item: DecodedItem) {
-        let pasteBoard = NSPasteboard.general
-        pasteBoard.clearContents()
-        pasteBoard.setString(item.value, forType: .string)
+    func copyToClipboard(item: DecodedItem) {
+        copier.copy(string: item.value)
+        notifier.notify(for: item, storage: decodedItems)
     }
 }
