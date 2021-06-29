@@ -32,6 +32,8 @@ final class HomeViewModel: ObservableObject {
 
     private let readerModel = ReaderWindowModel()
     private let notifier = Notifier()
+    private let copier = PasteboardCopier()
+
 
     private var storage = Set<AnyCancellable>()
 
@@ -49,7 +51,7 @@ final class HomeViewModel: ObservableObject {
             // seeing the item after we potentially notify
             self.notifier.notify(for: item, storage: self.decodedItems)
             self.decodedItems.insert(item, at: 0)
-            self.copyToClipboard(item: item)
+            self.copier.copy(string: item.value)
         }.store(in: &storage)
 
         commands.openScannerClicked = { [weak self] in

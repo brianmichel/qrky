@@ -12,13 +12,37 @@ import SwiftUI
 import Combine
 
 final class ReaderViewModel: ObservableObject {
+    @AppStorage(PreferenceKeys.autoCopyQRCode) private var autoCopyQRCode = false
+
     @Published var codes: [String] = []
+    @Published var showCopySheet = false
+
+    let foundCodeSubject: PassthroughSubject<String, Never>
+
+    init(foundCodeSubject: PassthroughSubject<String, Never>) {
+        self.foundCodeSubject = foundCodeSubject
+    }
 
     func update(codes: [String]?) {
-        guard let qrCodes = codes else {
-            return
+        self.codes = codes ?? []
+
+        if !autoCopyQRCode {
+            showCopySheet = self.codes.count > 0
+        } else if let first = self.codes.first {
+            foundCodeSubject.send(first)
         }
-        self.codes = qrCodes
+    }
+
+    func manuallyCopy(item: String) {
+        foundCodeSubject.send(item)
+
+        // Clear out the old codes since we just took action
+        // and we should wait for some user input before retriggering
+        clearCodes()
+    }
+
+    func clearCodes() {
+        update(codes: nil)
     }
 }
 
@@ -28,7 +52,7 @@ final class ReaderWindowModel {
         static let notificationDebounceTime: RunLoop.SchedulerTimeType.Stride = 0.3
     }
 
-    private let readerViewModel = ReaderViewModel()
+    private let readerViewModel: ReaderViewModel
 
     private let controller: NSWindowController
     private let reader = WindowReader()
@@ -38,6 +62,7 @@ final class ReaderWindowModel {
     private var storage = Set<AnyCancellable>()
 
     init() {
+        readerViewModel = ReaderViewModel(foundCodeSubject: foundCodeSubject)
         let controller = ReaderWindowController(rootView: ReaderView(model: readerViewModel))
         controller.window?.title = "QR Reader"
         controller.window?.setContentSize(Constants.readerDefaultSize)
@@ -47,7 +72,6 @@ final class ReaderWindowModel {
         Publishers.MergeMany(
             [NSWindow.didMoveNotification,
              NSWindow.didResizeNotification,
-             NSWindow.didBecomeKeyNotification
             ].map({ name in
                 return NotificationCenter.default.publisher(for: name, object: controller.window)
             })
@@ -94,12 +118,6 @@ final class ReaderWindowModel {
             print("Found codes: \(String(describing: codes))")
 
             self.readerViewModel.update(codes: codes)
-
-            guard let first = codes?.first else {
-                return
-            }
-
-            self.foundCodeSubject.send(first)
         }
     }
 }

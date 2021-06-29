@@ -28,6 +28,8 @@
 		729A0CD9268439CC00785E13 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */; };
 		729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */; };
 		729DE0CF2689F31C00D72566 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DE0CE2689F31C00D72566 /* Notifier.swift */; };
+		72B9F8AC268A91B2008D9A29 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B9F8AB268A91B2008D9A29 /* SheetView.swift */; };
+		72B9F8AE268A98FE008D9A29 /* PasteboardCopier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B9F8AD268A98FE008D9A29 /* PasteboardCopier.swift */; };
 		72C5EFB82687FBE8008F4ED8 /* FormGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */; };
 		72DBF97826879E1C00450699 /* QrkyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */; };
 		72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DBF9792687A14C00450699 /* HostingWindowFinder.swift */; };
@@ -62,6 +64,8 @@
 		729A0CD8268439CC00785E13 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
 		729DE0CE2689F31C00D72566 /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
+		72B9F8AB268A91B2008D9A29 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		72B9F8AD268A98FE008D9A29 /* PasteboardCopier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardCopier.swift; sourceTree = "<group>"; };
 		72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormGroupView.swift; sourceTree = "<group>"; };
 		72DBF97726879E1C00450699 /* QrkyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrkyAppDelegate.swift; sourceTree = "<group>"; };
 		72DBF9792687A14C00450699 /* HostingWindowFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingWindowFinder.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				72DBF9792687A14C00450699 /* HostingWindowFinder.swift */,
 				72DBF97B2687A2B800450699 /* NSWindow+Extensions.swift */,
 				72C5EFB72687FBE8008F4ED8 /* FormGroupView.swift */,
+				72B9F8AB268A91B2008D9A29 /* SheetView.swift */,
+				72B9F8AD268A98FE008D9A29 /* PasteboardCopier.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -294,11 +300,13 @@
 				729A0CD326842E6500785E13 /* ReaderWindow.swift in Sources */,
 				72DBF9812687BA6600450699 /* GeneralSettingsView.swift in Sources */,
 				729A0CD7268438B200785E13 /* CIImage+Extensions.swift in Sources */,
+				72B9F8AC268A91B2008D9A29 /* SheetView.swift in Sources */,
 				72625B8D26875A920076009B /* DecodedItemCell.swift in Sources */,
 				729A0CCE2684228A00785E13 /* DebugView.swift in Sources */,
 				72C5EFB82687FBE8008F4ED8 /* FormGroupView.swift in Sources */,
 				729A0CB9268410CB00785E13 /* HomeView.swift in Sources */,
 				72625B8F268766850076009B /* EmptyHomeView.swift in Sources */,
+				72B9F8AE268A98FE008D9A29 /* PasteboardCopier.swift in Sources */,
 				72DBF9862687BFC500450699 /* AboutSettingsView.swift in Sources */,
 				729A0CC82684135B00785E13 /* HomeViewModel.swift in Sources */,
 				729DE0CF2689F31C00D72566 /* Notifier.swift in Sources */,

@@ -37,6 +37,7 @@ enum ScannerSuccessColor: Int {
 
 struct GeneralSettingsView: View {
     @AppStorage(PreferenceKeys.autoOpenScanner) private var autoLaunchScanner = false
+    @AppStorage(PreferenceKeys.autoCopyQRCode) private var autoCopyQRCode = false
     @AppStorage(PreferenceKeys.qrCodeCheckDelay) private var qrCodeCheckDelay = QRCodeCheckDelay.instant
     @AppStorage(PreferenceKeys.qrScanSuccessColor) private var anotherDropDown = ScannerSuccessColor.green
 
@@ -51,6 +52,9 @@ struct GeneralSettingsView: View {
                     .foregroundColor(.secondary)
                     // Seems like we have to explicitly set the frame due to a layout issue.
                     .frame(width: 250)
+                Toggle(isOn: $autoCopyQRCode, label: {
+                    Text("Auto copy QR code")
+                })
                 Picker("Success Color:", selection: $anotherDropDown) {
                     Text("Green").tag(ScannerSuccessColor.green)
                     Text("Blue").tag(ScannerSuccessColor.blue)

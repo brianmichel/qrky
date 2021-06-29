@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ReaderView: View {
     @AppStorage(PreferenceKeys.qrScanSuccessColor) private var qrScanSuccessColor = ScannerSuccessColor.green
@@ -15,6 +16,7 @@ struct ReaderView: View {
         static let maxDimension: CGFloat = 600
         static let borderWidth: CGFloat = 10
     }
+    
     @ObservedObject var model: ReaderViewModel
     
     var body: some View {
@@ -27,15 +29,30 @@ struct ReaderView: View {
                 .border(borderColor(), width: Constants.borderWidth)
                 .animation(.easeInOut(duration: 0.3))
         }
+        .alert(isPresented: $model.showCopySheet, content: {
+            Alert(title: Text("Decoded QR Code"),
+                  message: Text("Found decoded value '\(firstCode())'. Would you like to copy it to the clipboard?"),
+                  primaryButton: .default(Text("Copy"), action: {
+                    model.manuallyCopy(item: firstCode())
+                  }),
+                  secondaryButton: .cancel(Text("Dismiss"), action: {
+                    model.clearCodes()
+                  }))
+        })
     }
 
-    func borderColor() -> Color {
+    private func borderColor() -> Color {
         model.codes.count > 0 ? qrScanSuccessColor.color : .red
+    }
+
+    private func firstCode() -> String {
+        return model.codes.first ?? ""
     }
 }
 
 struct ReaderView_Previews: PreviewProvider {
-    static let model = ReaderViewModel()
+    static let subject = PassthroughSubject<String, Never>()
+    static let model = ReaderViewModel(foundCodeSubject: subject)
 
     static var previews: some View {
         ReaderView(model: model)
