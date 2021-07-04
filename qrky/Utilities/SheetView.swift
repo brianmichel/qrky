@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+    
 struct SheetView<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
 
@@ -27,6 +27,7 @@ struct SheetView<Content: View>: View {
             VStack(alignment: .leading) {
                 Text(title).font(.title)
                 Text(subtitle ?? "")
+                    .foregroundColor(.secondary)
             }
             content
             HStack {
@@ -51,7 +52,12 @@ struct SheetView<Content: View>: View {
 struct SheetView_Previews: PreviewProvider {
     static var previews: some View {
         SheetView(title: "Found QR Code", subtitle: "Found the QR code 'https://rad.cool/stuff inside of this code. Would you like to copy it to your clipboard?") {
-            //
+            VStack {
+                Form {
+                    Text("Stuff")
+                    Text("Other Stuff")
+                }
+            }
         }
     }
 }

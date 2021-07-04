@@ -15,4 +15,5 @@ enum PreferenceKeys {
     static let notificationState = "notificationState"
     static let availableActions = "availableActions"
     static let selectedAction = "selectedAction"
+    static let actionsEnabled = "actionsEnabled"
 }

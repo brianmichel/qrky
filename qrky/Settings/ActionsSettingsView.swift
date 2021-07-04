@@ -52,35 +52,53 @@ extension Action {
 }
 
 struct ActionsSettingsView: View {
+    @AppStorage(PreferenceKeys.actionsEnabled) var actionsEnabled = false
+
     @AppStorage(PreferenceKeys.availableActions) var actions: [Action] = Action.defaultActions
     @AppStorage(PreferenceKeys.selectedAction) var selectedAction = 0
 
     @State private var showEditingSheet = false
+    @State private var showAddSheet = false
+
+    @State var actionSelection = Set<Action>()
 
     var body: some View {
         VStack {
             Form {
-                Picker("Default action:", selection: $selectedAction) {
-                    ForEach(0..<actions.count) { index in
-                        let action = actions[index]
-                        Text(action.title).tag(index)
+                Toggle("Allow actions", isOn: $actionsEnabled)
+                VStack(alignment: .leading) {
+                    List(actions, id: \.self, selection: $actionSelection) { action in
+                        HStack {
+                            Text(action.title)
+                            Spacer()
+                        }
+                        .onTapGesture(count: 2, perform: {
+                            showEditingSheet.toggle()
+                        })
+                    }
+                    .listStyle(SidebarListStyle())
+                    .cornerRadius(10)
+                    HStack {
+                        Spacer()
+                        Button("Add", action: {
+                            showAddSheet.toggle()
+                        })
                     }
                 }
-                Text("This is the action that will be performed automatically after recognizing a QR code.")
-                    .font(.callout)
-                    .frame(width: 250)
-                    .foregroundColor(.secondary)
-                HStack {
-                    Button("Edit actions...", action: {
-                        showEditingSheet.toggle()
-                    })
-                }
-            }.padding()
+                .disabled(!actionsEnabled)
+            }
+            .padding()
             Spacer()
         }
         .sheet(isPresented: $showEditingSheet, content: {
-            SheetView(title: "Actions", subtitle: nil) {
-                ActionsEditorView(actions: $actions)
+            let action = actionSelection.first
+            SheetView(title: "Edit Action", subtitle: nil) {
+                ActionEditorView(action: action)
+            }
+        })
+        .sheet(isPresented: $showAddSheet, content: {
+            SheetView(title: "Add action", subtitle: nil) {
+                ActionEditorView(action: nil)
             }
         })
     }

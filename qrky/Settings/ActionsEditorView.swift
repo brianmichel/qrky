@@ -13,7 +13,8 @@ struct ActionsEditorView: View {
     @State var actionSelection = Set<Action>()
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            Divider()
             NavigationView {
                 VStack(alignment: .leading) {
                     List(actions, id: \.self, selection: $actionSelection) { action in
@@ -34,7 +35,7 @@ struct ActionsEditorView: View {
                         Text("No action selected")
                     }
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            }.cornerRadius(10)
+            }
             Divider()
         }
         .frame(width: 500, height: 300)
@@ -54,32 +55,58 @@ struct ActionsEditorView: View {
 }
 
 struct ActionEditorView: View {
-    let action: Action
+    let action: Action?
+
+    @State private var title: String = ""
+    @State private var binaryURL: String = ""
+    @State private var arguments: String = ""
+
+    init(action: Action?) {
+        self.action = action
+
+        if let action = action {
+            self._title = State(initialValue: action.title)
+            self._binaryURL = State(initialValue: action.binaryURL.path)
+            self._arguments = State(initialValue: action.arguments)
+        }
+    }
 
     var body: some View {
         Form {
             VStack(alignment: .leading) {
                 Text("Title").font(.title2.bold())
-                Text("This is what you'll see your action be referred to by QRky."
+                Text("This is what you'll see your action be referred to as."
                 ).font(.callout)
                 .foregroundColor(.secondary)
-                TextField("Title", text: .constant(action.title))
+                TextField("Title", text: $title)
+                    .disabled(editingDisabled())
             }
             VStack(alignment: .leading) {
                 Text("Executable Path").font(.title2.bold())
-                Text("The path on disk where the executable for your action exists. "
+                Text("The path on disk where the executable for your action exists."
                 ).font(.callout)
                 .foregroundColor(.secondary)
-                TextField("Executable Path", text: .constant(action.binaryURL.path))
+                TextField("Executable Path", text: $binaryURL)
+                    .disabled(editingDisabled())
+
             }
             VStack(alignment: .leading) {
                 Text("Arguments").font(.title2.bold())
-                Text("The arguments that you will be passing to the executable. Please note that you can use {{value}} as a substitute token for the decode QR code value."
+                Text("The arguments that you will be passing to the executable. Please note that you can use {{value}} as a substitute token for the decode code value."
                 ).font(.callout).frame(width: 300)
                 .foregroundColor(.secondary)
-                TextField("Arguments", text: .constant(action.arguments))
+                TextField("Arguments", text: $arguments)
+                    .disabled(editingDisabled())
             }
         }
+    }
+
+    func editingDisabled() -> Bool {
+        guard let action = action else {
+            return false
+        }
+        // If an action is deletable, we should allow for editing.
+        return !action.isDeletable
     }
 }
 
@@ -89,11 +116,6 @@ struct ActionsEditorView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ActionsEditorView(actions: $actions)
-//            ActionEditorView(action: Action(
-//                                title: "iOS Simulator Deep Link",
-//                                            binaryURL: URL(fileURLWithPath: "/usr/bin/xcrun"),
-//                                arguments: "simctl openURL booted \"{{value}}\"'"))
-//                .padding()
         }
     }
 }
