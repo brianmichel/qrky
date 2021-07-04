@@ -93,12 +93,12 @@ struct ActionsSettingsView: View {
         .sheet(isPresented: $showEditingSheet, content: {
             let action = actionSelection.first
             SheetView(title: "Edit Action", subtitle: nil) {
-                ActionEditorView(action: action)
+                ActionEditorView(model: ActionEditorViewModel(action: action))
             }
         })
         .sheet(isPresented: $showAddSheet, content: {
             SheetView(title: "Add action", subtitle: nil) {
-                ActionEditorView(action: nil)
+                ActionEditorView(model: ActionEditorViewModel(action: nil))
             }
         })
     }

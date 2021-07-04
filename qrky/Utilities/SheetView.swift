@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+
+protocol Sheetable {
+    var trailingSheetButton: AnyView { get }
+}
     
-struct SheetView<Content: View>: View {
+struct SheetView<Content: View & Sheetable>: View {
     @Environment(\.presentationMode) var presentationMode
 
     private let content: Content
@@ -37,11 +41,9 @@ struct SheetView<Content: View>: View {
                     Text("Dismiss")
                 }).keyboardShortcut(KeyEquivalent.escape)
                 Spacer()
-                Button(action: {
+                content.trailingSheetButton.onTapGesture(perform: {
                     presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("OK")
-                }).keyboardShortcut(KeyEquivalent.return)
+                })
             }
         }
         .frame(maxWidth: 500)
@@ -52,12 +54,15 @@ struct SheetView<Content: View>: View {
 struct SheetView_Previews: PreviewProvider {
     static var previews: some View {
         SheetView(title: "Found QR Code", subtitle: "Found the QR code 'https://rad.cool/stuff inside of this code. Would you like to copy it to your clipboard?") {
-            VStack {
-                Form {
-                    Text("Stuff")
-                    Text("Other Stuff")
-                }
-            }
+            TestSheetView()
         }
+    }
+}
+
+fileprivate struct TestSheetView: View, Sheetable {
+    let trailingSheetButton = AnyView(Button("Testing", action: {}))
+
+    var body: some View {
+        Text("I'm the testing body")
     }
 }
