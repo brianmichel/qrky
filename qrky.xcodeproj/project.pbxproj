@@ -29,7 +29,7 @@
 		729DE0CF2689F31C00D72566 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DE0CE2689F31C00D72566 /* Notifier.swift */; };
 		72A367D928596ED100C38711 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 72A367D828596ED100C38711 /* ComposableArchitecture */; };
 		72A367DC28596F6400C38711 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A367DB28596F6400C38711 /* AppCore.swift */; };
-		72A367DF2859700900C38711 /* AppDelegateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A367DE2859700900C38711 /* AppDelegateClient.swift */; };
+		72A367DF2859700900C38711 /* AppDelegateCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A367DE2859700900C38711 /* AppDelegateCore.swift */; };
 		72A367E12859767200C38711 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A367E02859767200C38711 /* AppCommands.swift */; };
 		72A367E328597EBC00C38711 /* ScannerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A367E228597EBC00C38711 /* ScannerClient.swift */; };
 		72B9F8AC268A91B2008D9A29 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B9F8AB268A91B2008D9A29 /* SheetView.swift */; };
@@ -68,7 +68,7 @@
 		729A0CDA2684AD3A00785E13 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
 		729DE0CE2689F31C00D72566 /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		72A367DB28596F6400C38711 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
-		72A367DE2859700900C38711 /* AppDelegateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateClient.swift; sourceTree = "<group>"; };
+		72A367DE2859700900C38711 /* AppDelegateCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateCore.swift; sourceTree = "<group>"; };
 		72A367E02859767200C38711 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
 		72A367E228597EBC00C38711 /* ScannerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerClient.swift; sourceTree = "<group>"; };
 		72B9F8AB268A91B2008D9A29 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
@@ -96,14 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		72625B8226867B3C0076009B /* Data */ = {
+		72625B8226867B3C0076009B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				72625B8526867BC50076009B /* Window.swift */,
 				72625B8726867BEA0076009B /* DecodedItem.swift */,
 				72420D652687D45A007260FD /* PreferenceKeys.swift */,
 			);
-			path = Data;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		729A0CAA268410CB00785E13 = {
@@ -129,7 +129,7 @@
 				72DBF9822687BEDA00450699 /* Infrastructure */,
 				72DBF97D2687B32100450699 /* Settings */,
 				72DBF97626879E0300450699 /* Start Up */,
-				72625B8226867B3C0076009B /* Data */,
+				72625B8226867B3C0076009B /* Models */,
 				729A0CD126842E5300785E13 /* Reader */,
 				729A0CCC2684227900785E13 /* Debug */,
 				729A0CC9268413F700785E13 /* Utilities */,
@@ -209,7 +209,7 @@
 		72A367DD28596FFC00C38711 /* AppDelegateClient */ = {
 			isa = PBXGroup;
 			children = (
-				72A367DE2859700900C38711 /* AppDelegateClient.swift */,
+				72A367DE2859700900C38711 /* AppDelegateCore.swift */,
 			);
 			path = AppDelegateClient;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 				72625B8826867BEA0076009B /* DecodedItem.swift in Sources */,
 				72420D662687D45A007260FD /* PreferenceKeys.swift in Sources */,
 				729A0CB7268410CB00785E13 /* QrkyApp.swift in Sources */,
-				72A367DF2859700900C38711 /* AppDelegateClient.swift in Sources */,
+				72A367DF2859700900C38711 /* AppDelegateCore.swift in Sources */,
 				72DBF97A2687A14C00450699 /* HostingWindowFinder.swift in Sources */,
 				729A0CDB2684AD3A00785E13 /* ReaderViewModel.swift in Sources */,
 				72DBF97F2687B32A00450699 /* SettingsView.swift in Sources */,

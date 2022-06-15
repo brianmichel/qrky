@@ -11,17 +11,18 @@ import OrderedCollections
 struct AppState: Equatable {
     var items = OrderedSet<DecodedItem>()
     var scannerShowing = false
+    var appDelegate: AppDelegateState = .init()
 }
 
 struct AppEnvironment {
-    var appDelegate: AppDelegateClient
     var pasteboard = PasteboardCopier()
     var notifier = Notifier()
     var scanner: ScannerClient = .live
+    var appDelegate: AppDelegateEnvironment = .init()
 }
 
 enum AppAction {
-    case appDelegate(AppDelegateClient.Action)
+    case appDelegate(AppDelegateAction)
     case beginScanning
     case endScanning
     case copyToClipboard(DecodedItem)
@@ -29,10 +30,13 @@ enum AppAction {
 }
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
+    appDelegateReducer.pullback(
+        state: \.appDelegate,
+        action: /AppAction.appDelegate,
+        environment: \.appDelegate),
     Reducer { state, action, environment in
         switch action {
-        case .appDelegate(.willFinishLaunching):
-            NSWindow.allowsAutomaticWindowTabbing = false
+        case .appDelegate:
             return .none
         case .beginScanning:
             // begin scanning with client
@@ -55,6 +59,6 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
 
 extension AppEnvironment {
     static var live: Self {
-        return .init(appDelegate: .live)
+        return .init()
     }
 }
