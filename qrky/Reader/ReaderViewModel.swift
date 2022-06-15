@@ -94,6 +94,7 @@ final class ReaderWindowModel {
 
     func hide() {
         controller.close()
+
     }
 
     private func checkForCode(in window: NSWindow) {

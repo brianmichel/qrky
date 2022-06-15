@@ -5,6 +5,7 @@
 //  Created by Brian Michel on 6/23/21.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct HomeView: View {
@@ -16,51 +17,58 @@ struct HomeView: View {
         static let minHeight: CGFloat = 300
         static let maxHeight: CGFloat = 700
     }
-    @ObservedObject var model: HomeViewModel
+
+    var store: Store<AppState, AppAction>
 
     var body: some View {
-        VStack {
-            if model.decodedItems.count > 0 {
-                ScrollView {
-                    LazyVStack(spacing: 5) {
-                        ForEach(model.decodedItems, id: \.self) { item in
-                            DecodedItemCell(date: item.date, value: item.value) {
-                                model.copyToClipboard(item: item)
-                            }
-                        }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+        WithViewStore(store) { viewStore in
+            VStack {
+                if viewStore.items.count > 0 {
+                    ScrollView {
+                        LazyVStack(spacing: 5) {
+                            ForEach(viewStore.items, id: \.self) { item in
+                                DecodedItemCell(date: item.date, value: item.value) {
+                                    viewStore.send(.copyToClipboard(item))
+                                }
+                            }.animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                        }
                     }
+                } else {
+                    EmptyHomeView()
                 }
-            } else {
-                EmptyHomeView()
-            }
-        }.toolbar(content: {
-            Button(action: {
-                model.showReader()
-            }, label: {
-                Label("New Scanner", systemImage: "viewfinder")
+            }.toolbar(content: {
+                Button(action: {
+                    viewStore.send(.beginScanning)
+                }, label: {
+                    Label("New Scanner", systemImage: "viewfinder")
+                })
+                .keyboardShortcut(KeyEquivalent("s"), modifiers: .command)
+                .help("Show the QR code scanner.")
+            }).frame(minWidth: Constants.minWidth,
+                     maxWidth: Constants.maxWidth,
+                     minHeight: Constants.minHeight,
+                     maxHeight: Constants.maxHeight,
+                     alignment: .center)
+            .background(
+                // TODO: This is a hack to bridge into AppKit and disable the full screen button.
+                HostingWindowFinder { window in
+                    window?.disableFullScreen()
+                }
+            ).onAppear(perform: {
+                if autoOpenScanner {
+                    viewStore.send(.beginScanning)
+                }
             })
-            .keyboardShortcut(KeyEquivalent("s"), modifiers: .command)
-            .help("Show the QR code scanner.")
-        }).frame(minWidth: Constants.minWidth,
-                 maxWidth: Constants.maxWidth,
-                 minHeight: Constants.minHeight,
-                 maxHeight: Constants.maxHeight,
-                 alignment: .center)
-        .background(
-            // TODO: This is a hack to bridge into AppKit and disable the full screen button.
-            HostingWindowFinder { window in
-                window?.disableFullScreen()
-            }
-        ).onAppear(perform: {
-            if autoOpenScanner {
-                model.showReader()
-            }
-        })
+        }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(model: HomeViewModel())
+        Group {
+            HomeView(store: .init(initialState: .init(),
+                                  reducer: appReducer,
+                                  environment: .live))
+        }
     }
 }

@@ -5,19 +5,19 @@
 //  Created by Brian Michel on 6/23/21.
 //
 
+import Combine
 import SwiftUI
 
 @main
-struct qrkyApp: App {
-    let model = HomeViewModel()
+struct QrkyApp: App {
 
     @NSApplicationDelegateAdaptor(QrkyAppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
-            HomeView(model: model)
+            HomeView(store: appDelegate.store)
         }.commands {
-            model.commands
+           // AppCommands(store: appDelegate.store)
         }
 
         Settings {
